@@ -10,7 +10,7 @@ watermark_data = ski.io.imread(watermark_path)
 
 a, b, c = watermark_data.shape
 
-ap, bp = 300, 300
+ap, bp = 100, 100
 
 if image_data.shape[0] < ap or image_data.shape[1] < bp:
     print("Error: could not add watermark!")
@@ -22,8 +22,7 @@ else:
                 int(j/bp*b)
             ]
 
-            # remove dark parts from watermark
-            if any(watermark_pixel > (20, 20, 20)):
+            if any(watermark_pixel > 20):
                 image_data[i, j] = watermark_pixel
 
     plt.imshow(image_data)
