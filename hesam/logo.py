@@ -4,7 +4,7 @@ import skimage as ski
 main_image = ski.io.imread('main.jpg')
 logo_image = ski.io.imread('2.jpg')
 
-logo_image[logo_image[:, :, :3] < 40] = 255
+logo_image[logo_image[:, :, :3] == 0] = 255
 
 logo_resized = ski.util.img_as_ubyte(
     ski.transform.resize(logo_image[:, :, :3], (100, 100)))
